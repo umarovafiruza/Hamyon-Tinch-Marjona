@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0c0c0e">
+  <title>Oila Hisob-Kitobi - Kirim va Chiqim</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="mobile-wrapper">
+    <div class="app-container">
+      
+      <!-- ================= 1. BOSH SAHIFA (HOME) ================= -->
+      <section id="tab-home" class="tab-content active">
+        <!-- Yuqori Profil & Bildirishnoma -->
+        <header class="top-nav-bar">
+          <div class="user-profile">
+            <div class="avatar-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="user-text">
+              <span class="greeting-subtitle">Xush kelibsiz</span>
+              <h2 class="user-title">Oila Hamyoni</h2>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button type="button" class="icon-circle-btn" id="themeToggleBtn" title="Mavzuni almashtirish" aria-label="Mavzuni almashtirish">
+              <span id="themeIcon">
+                <!-- Quyosh yoki Oy ikonkasi JS orqali boshqariladi -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+              </span>
+            </button>
+            <button type="button" class="icon-circle-btn" id="openBudgetModalBtnTop" title="Byudjetni sozlash" aria-label="Byudjetni sozlash">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Oylik Navigatsiya (Oyma-oy ko'rish) -->
+        <div class="month-navigator">
+          <button type="button" class="month-nav-btn" id="prevMonthBtn" aria-label="Oldingi oy">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="current-month-display" id="currentMonthLabel">Sentyabr 2026</div>
+          <button type="button" class="month-nav-btn" id="nextMonthBtn" aria-label="Keyingi oy">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Asosiy Balans Paneli: Qoldiq Balans va Kirim/Chiqim ko'rsatkichlari -->
+        <div class="balance-card">
+          <div class="card-top-row">
+            <span class="card-brand-name">Oila Hisobi</span>
+            <div class="card-top-actions">
+              <button type="button" class="card-mini-btn income-mini" id="quickAddIncomeBtn">+ Kirim</button>
+              <button type="button" class="card-mini-btn expense-mini" id="quickAddExpenseBtn">- Chiqim</button>
+            </div>
+          </div>
+          
+          <div class="card-balance-section">
+            <span class="card-balance-label">Hamyondagi sof qoldiq</span>
+            <div class="card-balance-amount" id="homeNetBalance">0 so'm</div>
+          </div>
+
+          <!-- Kirim va Chiqim mini ko'rsatkichlari -->
+          <div class="card-cashflow-row">
+            <div class="cashflow-pill income-pill">
+              <span class="cashflow-icon">↓</span>
+              <div class="cashflow-data">
+                <span class="cashflow-tag">Jami Kirim</span>
+                <span class="cashflow-num" id="homeTotalIncome">+ 0 so'm</span>
+              </div>
+            </div>
+
+            <div class="cashflow-pill expense-pill">
+              <span class="cashflow-icon">↑</span>
+              <div class="cashflow-data">
+                <span class="cashflow-tag">Jami Chiqim</span>
+                <span class="cashflow-num" id="homeTotalExpense">- 0 so'm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oylik Byudjet monitoring kartasi -->
+        <div class="budget-card" id="budgetCard">
+          <div class="budget-header">
+            <div class="budget-title-box">
+              <span class="budget-badge">OYLIK REJA</span>
+              <h3 class="budget-title">Belgilangan Byudjet</h3>
+            </div>
+            <button type="button" class="budget-edit-btn" id="openBudgetModalBtn">
+              Sozlash
+            </button>
+          </div>
+
+          <div class="budget-progress-info">
+            <span id="budgetSpentText">Ishlatildi: 0 so'm (0%)</span>
+            <span id="budgetRemainingText" class="budget-remaining">Qoldi: 0 so'm</span>
+          </div>
+
+          <div class="budget-track">
+            <div id="budgetFillBar" class="budget-fill" style="width: 0%;"></div>
+          </div>
+
+          <div class="budget-limit-row">
+            <span>Cheklov: <strong id="budgetTotalLimit">0 so'm</strong></span>
+            <span id="budgetWarningLabel" class="budget-status-good">Me'yorda</span>
+          </div>
+        </div>
+
+        <!-- 4 ta Tezkor Amallar Tugmasi -->
+        <div class="quick-actions">
+          <button type="button" class="quick-action-item" id="quickActionAdd">
+            <div class="action-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+            <span>Qo'shish</span>
+          </button>
+
+          <button type="button" class="quick-action-item" id="quickActionStats">
+            <div class="action-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <span>Statistika</span>
+          </button>
+
+          <button type="button" class="quick-action-item" id="quickActionBudget">
+            <div class="action-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <span>Byudjet</span>
+          </button>
+
+          <button type="button" class="quick-action-item" id="quickActionHistory">
+            <div class="action-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <span>Barchasi</span>
+          </button>
+        </div>
+
+        <!-- So'nggi Harakatlar (Recent Activity) -->
+        <div class="section-container">
+          <div class="section-header">
+            <h3 class="section-title">Bu oydagi amallar</h3>
+            <button type="button" class="see-all-link" id="seeAllBtn">Barchasi</button>
+          </div>
+          <div id="homeRecentList" class="activity-list"></div>
+        </div>
+      </section>
+
+      <!-- ================= 2. STATISTIKA SAHIFA (STATISTICS) ================= -->
+      <section id="tab-stats" class="tab-content">
+        <header class="page-top-bar">
+          <button type="button" class="nav-back-btn back-to-home" title="Orqaga">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <h2 class="page-title">Statistika</h2>
+          <div class="top-bar-placeholder"></div>
+        </header>
+
+        <div class="period-badge-wrapper">
+          <span class="period-badge" id="statsMonthBadge">Sentyabr 2026 hisoboti</span>
+        </div>
+
+        <!-- 3 ta Katta Ko'rsatkich Bloki -->
+        <div class="stats-overview-grid">
+          <div class="stats-box income-box">
+            <span class="stats-box-title">Jami Kirim</span>
+            <div class="stats-box-value" id="statsTotalIncome">+ 0 so'm</div>
+          </div>
+          <div class="stats-box expense-box">
+            <span class="stats-box-title">Jami Chiqim</span>
+            <div class="stats-box-value" id="statsTotalExpense">- 0 so'm</div>
+          </div>
+        </div>
+
+        <div class="net-saving-card">
+          <span class="saving-label">Oy davomida tejalgan pul</span>
+          <div class="saving-value" id="statsNetSaving">0 so'm</div>
+        </div>
+
+        <!-- Aylana Grafik (Circle / Donut Chart) -->
+        <div class="section-container">
+          <h3 class="section-title">Xarajatlar aylanma grafigi</h3>
+          <div class="stats-chart-card">
+            <div id="circleChartContainer" class="circle-chart-wrapper"></div>
+          </div>
+        </div>
+
+        <!-- Kategoriyalar bo'yicha batafsil taqsimot -->
+        <div class="section-container">
+          <h3 class="section-title">Kategoriyalar bo'yicha taqsimot</h3>
+          <div id="categoriesList" class="categories-breakdown-list"></div>
+        </div>
+      </section>
+
+      <!-- ================= 3. AMAL QO'SHISH (KIRIM VA CHIQIM) ================= -->
+      <section id="tab-add" class="tab-content">
+        <header class="page-top-bar">
+          <button type="button" class="nav-back-btn back-to-home" title="Orqaga">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <h2 class="page-title">Pul qo'shish</h2>
+          <div class="top-bar-placeholder"></div>
+        </header>
+
+        <!-- Kirim / Chiqim tanlash (Type Switcher) -->
+        <div class="type-switcher">
+          <button type="button" class="type-btn active" id="typeExpenseBtn" data-type="expense">
+            🔴 Chiqim (Xarajat)
+          </button>
+          <button type="button" class="type-btn" id="typeIncomeBtn" data-type="income">
+            🟢 Kirim (Daromad)
+          </button>
+        </div>
+
+        <form id="transactionForm" class="modern-form" novalidate>
+          <!-- Katta Summa Kiritish Maydoni -->
+          <div class="amount-hero-box">
+            <label for="transactionAmount" class="hero-label">Summani kiriting</label>
+            <div class="hero-input-row">
+              <input type="text" id="transactionAmount" class="hero-amount-input" placeholder="0" inputmode="numeric" autocomplete="off">
+              <span class="hero-currency-tag">so'm</span>
+            </div>
+          </div>
+
+          <!-- Nomi Maydoni -->
+          <div class="form-field-group">
+            <label for="transactionName" class="input-field-label">Nomi yoki izoh</label>
+            <input type="text" id="transactionName" class="modern-text-input" placeholder="Masalan: Bozorlik, Oylik maosh, Taxi..." autocomplete="off">
+          </div>
+
+          <!-- Sana Maydoni -->
+          <div class="form-field-group">
+            <label for="transactionDate" class="input-field-label">Sana</label>
+            <input type="date" id="transactionDate" class="modern-text-input modern-date-input">
+          </div>
+
+          <!-- Kategoriya Chiplari -->
+          <div class="form-field-group">
+            <label class="input-field-label">Kategoriyani tanlang</label>
+            <div class="category-chips-grid" id="categoryChipsContainer">
+              <!-- JS orqali Chiqim yoki Kirimga mos kategoriyalar joylanadi -->
+            </div>
+            <input type="hidden" id="selectedCategory" value="">
+          </div>
+
+          <!-- Xato xabari -->
+          <div id="errorMessage" class="error-banner" style="display: none;"></div>
+
+          <!-- Saqlash Tugmasi -->
+          <div class="submit-action-box">
+            <button type="submit" class="submit-main-btn" id="saveTransactionBtn">Saqlash</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ================= 4. BARCHA AMALLAR (HISTORY) ================= -->
+      <section id="tab-history" class="tab-content">
+        <header class="page-top-bar">
+          <button type="button" class="nav-back-btn back-to-home" title="Orqaga">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <h2 class="page-title">Barcha amallar</h2>
+          <div class="top-bar-placeholder"></div>
+        </header>
+
+        <!-- Filtr tugmalari: Barchasi | Chiqim | Kirim -->
+        <div class="history-filter-pills">
+          <button type="button" class="filter-pill active" data-filter="all">Barchasi</button>
+          <button type="button" class="filter-pill" data-filter="expense">Faqat chiqim</button>
+          <button type="button" class="filter-pill" data-filter="income">Faqat kirim</button>
+        </div>
+
+        <div class="section-container">
+          <div class="history-meta-bar">
+            <span id="historyCountText" class="history-count">0 ta amal</span>
+            <span id="historyMonthName" class="history-month">Sentyabr 2026</span>
+          </div>
+          <div id="historyExpenseList" class="activity-list"></div>
+        </div>
+      </section>
+
+      <!-- ================= BYUDJET SOZLASH MODAL OYNASI ================= -->
+      <div id="budgetModal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+          <div class="modal-header">
+            <h3 class="modal-title">Oylik Byudjetni Sozlash</h3>
+            <button type="button" class="modal-close-btn" id="closeBudgetModalBtn">&times;</button>
+          </div>
+
+          <p class="modal-desc">
+            Har oy xarajatlar uchun mo'ljallangan umumiy summani belgilang. Dastur pulingizni me'yordan oshib ketmasligini nazorat qiladi.
+          </p>
+
+          <div class="modal-input-group">
+            <label for="monthlyBudgetInput" class="input-field-label">Oylik byudjet miqdori (so'm)</label>
+            <input type="text" id="monthlyBudgetInput" class="modern-text-input" placeholder="Masalan: 5,000,000" inputmode="numeric" autocomplete="off">
+          </div>
+
+          <!-- Tezkor tugmalar (Presets) -->
+          <div class="budget-presets">
+            <button type="button" class="preset-btn" data-val="3000000">3 mln</button>
+            <button type="button" class="preset-btn" data-val="5000000">5 mln</button>
+            <button type="button" class="preset-btn" data-val="7000000">7 mln</button>
+            <button type="button" class="preset-btn" data-val="10000000">10 mln</button>
+          </div>
+
+          <button type="button" class="budget-match-income-btn" id="matchBudgetWithIncomeBtn">
+            Oylik jami daromadga tenglash (<span id="modalIncomeSpan">0 so'm</span>)
+          </button>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" id="cancelBudgetBtn">Bekor qilish</button>
+            <button type="button" class="btn-save-budget" id="saveBudgetBtn">Saqlash</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= EKRAN PASTIDAGI NAVIGATION BAR ================= -->
+      <nav class="bottom-nav" aria-label="Asosiy menyu">
+        <button type="button" class="nav-btn active" data-tab="tab-home" aria-label="Bosh sahifa">
+          <div class="nav-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+        </button>
+
+        <button type="button" class="nav-btn" data-tab="tab-stats" aria-label="Statistika">
+          <div class="nav-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="10" width="5" height="11" rx="1"></rect>
+              <rect x="9.5" y="4" width="5" height="17" rx="1"></rect>
+              <rect x="17" y="13" width="5" height="8" rx="1"></rect>
+            </svg>
+          </div>
+        </button>
+
+        <button type="button" class="nav-btn" data-tab="tab-add" aria-label="Pul qo'shish">
+          <div class="nav-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+        </button>
+
+        <button type="button" class="nav-btn" data-tab="tab-history" aria-label="Barcha amallar">
+          <div class="nav-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+        </button>
+      </nav>
+
+    </div>
+  </div>
+</body>
+</html>
